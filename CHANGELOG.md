@@ -7,7 +7,10 @@
     `Simp::ComponentInfo::CHANGELOG_ENTRY_REGEX`, the same entry regex used by
     `Simp::ComponentInfo` and `Simp::RelChecks`. Affected every component
     released since `10.0.0`; single-digit majors were unaffected.
-  - The deprecated `pupmod:compare_latest_tag` task now uses the
+  - `pkg:check_version` now reports a malformed newest CHANGELOG entry instead
+    of skipping it. Skipping fell through to an older entry and reported that
+    entry's stale version as out of date, pointing at the wrong problem.
+  - The deprecated top-level `compare_latest_tag` task now uses the
     `CHANGELOG_ENTRY_REGEX` constant already defined in its own class instead of
     an inline copy that had drifted (it required a zero-padded day).
 
